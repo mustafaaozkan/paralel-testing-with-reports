@@ -9,7 +9,7 @@ import com.cbt.utilities.Driver;
 
 public class LoginPage {
 
-	public LoginPage() {
+	public LoginPage() throws InterruptedException {
 		PageFactory.initElements(Driver.getDriver(), this);	
 	}
 

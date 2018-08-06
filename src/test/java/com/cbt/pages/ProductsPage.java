@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.cbt.utilities.Driver;
 
 public class ProductsPage {
-	public ProductsPage() {
+	public ProductsPage() throws InterruptedException {
 		PageFactory.initElements(Driver.getDriver(), this);
 	}
 	

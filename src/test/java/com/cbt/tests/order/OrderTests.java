@@ -23,7 +23,7 @@ public class OrderTests extends TestBase {
 	String password = ConfigurationReader.getProperty("password");
 
 	@Test(description = "Verify labels and tab links are displayed", priority = 1)
-	public void labelsVerication() {
+	public void labelsVerication() throws InterruptedException {
 
 		LoginPage loginPage = new LoginPage();
 
@@ -39,7 +39,7 @@ public class OrderTests extends TestBase {
 	}
 
 	@Test(description = "Verify default Products and prices")
-	public void availableProductsTest() {
+	public void availableProductsTest() throws InterruptedException {
 		assertEquals(driver.getTitle(), "Web Orders Login", "LoginPage is not displayed. Application is down.");
 		LoginPage loginPage = new LoginPage();
 		loginPage.login(userId, password);

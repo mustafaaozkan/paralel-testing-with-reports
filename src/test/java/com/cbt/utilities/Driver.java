@@ -13,9 +13,11 @@ public class Driver {
 	
 	private static WebDriver driver;
 
-	public static WebDriver getDriver() {
+	public static WebDriver getDriver(String browser) throws InterruptedException {
 		if (driver == null) {
-			switch (ConfigurationReader.getProperty("browser")) {
+			browser= browser == null? ConfigurationReader.getProperty("browser"):browser;
+			System.out.println(browser);
+			switch (browser) {
 			case "firefox":
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver();
@@ -30,7 +32,12 @@ public class Driver {
 				break;
 			}
 		}
+		Thread.sleep(2000);
 		return driver;
+	}
+	
+	public static WebDriver getDriver() throws InterruptedException {
+		return getDriver(null);
 	}
 
 	public static void closeDriver() {
